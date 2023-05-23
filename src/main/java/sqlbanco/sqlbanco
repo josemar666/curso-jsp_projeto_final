@@ -1,0 +1,21 @@
+CREATE TABLE public.modelloguin
+(
+    loguin character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    senha character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    id integer NOT NULL DEFAULT nextval('modelloguin_id_seq'::regclass),
+    nome character varying(300) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(300) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT modelloguin_pkey PRIMARY KEY (id),
+    CONSTRAINT login_unique UNIQUE (loguin)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.modelloguin
+    OWNER to postgres;
+    
+    
+    
+    INSERT INTO public."ModelLoguin"(
+	loguin, senha)
+	VALUES ('admin', 'admin');
